@@ -1,0 +1,116 @@
+/* src/tailwind.css */
+
+/* 1. Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@400;500;600&display=swap');
+
+/* 2. Import Tailwind engine */
+@import "tailwindcss";
+
+/* 3. Define theme variables for fonts */
+@theme {
+  /* font-display → Inter */
+  --font-display: "Inter", sans-serif;
+  /* font-body → Poppins */
+  --font-body: "Poppins", sans-serif;
+  --color-blob-bg: rgba(255, 255, 255, 0.1);
+}
+
+/* 4. Base layer styling */
+@layer base {
+  body {
+    /* Use your theme fonts + defaults */
+    @apply bg-black text-slate-300 font-body cursor-none;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display text-white;
+  }
+
+  button {
+    @apply text-white border-2 border-white;
+  }
+
+  img {
+    @apply inline-block;
+  }
+}
+
+/* 5. Component-level utility classes */
+@layer components {
+  .white-heading {
+    @apply text-white font-display font-bold;
+  }
+
+  .subheading {
+    @apply text-slate-300 font-body font-medium;
+  }
+
+  .description-text {
+    @apply text-slate-300 font-body leading-relaxed;
+  }
+
+  .primary-button {
+    @apply border-2 border-white text-white px-4 py-2 rounded hover:bg-white hover:text-black transition;
+  }
+
+  .section-box {
+    @apply border border-white rounded-lg p-6;
+  }
+
+  .tag-text {
+    @apply text-gray-500 font-body text-xs uppercase tracking-widest;
+  }
+
+  .cursor-dot {
+    @apply w-1 h-1 bg-white rounded-full fixed top-0 left-0 -translate-x-1/2 -translate-y-1/2 z-50 pointer-events-none;
+  }
+
+  .cursor-outline {
+    @apply w-6 h-6 border-2 border-white/50 rounded-full fixed top-0 left-0 -translate-x-1/2 -translate-y-1/2 z-50 pointer-events-none;
+  }
+
+  @keyframes rotate1 {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes rotate2 {
+    0% {
+      transform: rotate(360deg);
+    }
+
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+
+  {/* tailwind-safe: ball-line-1 ball-line-2 ball-line-3 */}
+
+  .ball-line-1 {
+    @apply absolute top-0 left-0 w-full h-full border-2 border-white rounded-[32%_58%_69%_43%_/_48%_32%_59%_55%];
+    animation: rotate1 6s linear infinite;
+  }
+
+  .ball-line-2 {
+    @apply absolute top-0 left-0 w-full h-full border-2 border-white rounded-[38%_62%_63%_37%_/_41%_44%_56%_59%];
+    animation: rotate2 4s linear infinite;
+  }
+
+  .ball-line-3 {
+    @apply absolute top-0 left-0 w-full h-full border-2 border-white rounded-[31%_45%_74%_35%_/_38%_56%_51%_87%];
+    animation: rotate1 10s linear infinite;
+  }
+
+
+
+}
